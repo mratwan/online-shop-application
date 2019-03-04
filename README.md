@@ -1,3 +1,3 @@
-# online-shop
+# Online Shop Application
 
-A new Flutter project.
+This is a simple app developed for android/ios platforms with google flutter.
