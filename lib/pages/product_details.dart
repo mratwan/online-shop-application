@@ -220,7 +220,7 @@ class _ProductDetailsState extends State<ProductDetails> {
               ),
               Padding(
                 padding: const EdgeInsets.all(5.0),
-                child: Text('Test'),
+                child: Text('NEW'),
               )
             ],
           )
