@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shop/main.dart';
 
 class ProductDetails extends StatefulWidget {
   final product_detail_name;
@@ -23,14 +24,13 @@ class _ProductDetailsState extends State<ProductDetails> {
       appBar: AppBar(
         elevation: 0.1,
         backgroundColor: Colors.red,
-        title: Text('Digikala'),
+        title: InkWell(
+          onTap: () { Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage())); },
+          child: Text('Digikala')
+        ),
         actions: <Widget>[
           IconButton(
               icon: Icon(Icons.search), color: Colors.white, onPressed: () {}),
-          IconButton(
-              icon: Icon(Icons.shopping_cart),
-              color: Colors.white,
-              onPressed: () {}),
         ],
       ),
       body: ListView(

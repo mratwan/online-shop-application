@@ -20,6 +20,30 @@ class _ProductsState extends State<Products> {
       "old_price": 100,
       "price": 50,
     },
+    {
+      "name": "Red dress",
+      "picture": "assets/images/products/hills1.jpeg",
+      "old_price": 100,
+      "price": 50,
+    },
+    {
+      "name": "Red dress",
+      "picture": "assets/images/products/hills2.jpeg",
+      "old_price": 100,
+      "price": 50,
+    },
+    {
+      "name": "Red dress",
+      "picture": "assets/images/products/skt1.jpeg",
+      "old_price": 100,
+      "price": 50,
+    },
+    {
+      "name": "Red dress",
+      "picture": "assets/images/products/skt2.jpeg",
+      "old_price": 100,
+      "price": 50,
+    },
   ];
 
   @override
@@ -56,7 +80,7 @@ class Single_prod extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: Hero(
-          tag: prod_name,
+          tag: Text("Hero 1"),
           child: Material(
             child: InkWell(
               onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProductDetails(
@@ -68,24 +92,13 @@ class Single_prod extends StatelessWidget {
               child: GridTile(
                   footer: Container(
                     color: Colors.white70,
-                    child: ListTile(
-                        leading: Text(
-                          prod_name,
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Text(prod_name, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0)),
                         ),
-                        title: Text(
-                          "\$$prod_price",
-                          style: TextStyle(
-                              color: Colors.red, fontWeight: FontWeight.w800),
-                        ),
-                        subtitle: Text(
-                          "\$$prod_old_price",
-                          style: TextStyle(
-                              color: Colors.black54,
-                              fontWeight: FontWeight.w800,
-                              decoration
-                                  :TextDecoration.lineThrough),
-                        ),
+                        Text("\$" + prod_price.toString(), style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold))
+                      ],
                     ),
                   ),
                   child: Image.asset(
