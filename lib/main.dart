@@ -3,6 +3,7 @@ import 'package:carousel_pro/carousel_pro.dart';
 
 import 'package:shop/components/horizontal_listview.dart';
 import 'package:shop/components/products.dart';
+import 'package:shop/pages/cart.dart';
 
 void main() => runApp(
   MaterialApp(
@@ -48,7 +49,9 @@ class _HomePageState extends State<HomePage> {
         title: Text('Digikala'),
         actions: <Widget>[
           IconButton(icon: Icon(Icons.search), color: Colors.white, onPressed: () {}),
-          IconButton(icon: Icon(Icons.shopping_cart), color: Colors.white, onPressed: () {}),
+          IconButton(icon: Icon(Icons.shopping_cart), color: Colors.white, onPressed: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => Cart()));
+          }),
         ],
       ),
 
@@ -97,7 +100,7 @@ class _HomePageState extends State<HomePage> {
             ),
 
             InkWell(
-              onTap: () {},
+              onTap: () { Navigator.push(context, MaterialPageRoute(builder: (context) => Cart())); },
               child: ListTile(
                 title: Text('Shopping Cart'),
                 leading: Icon(Icons.shopping_cart),
