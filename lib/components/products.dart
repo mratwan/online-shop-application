@@ -55,7 +55,7 @@ class _ProductsState extends State<Products> {
         itemBuilder: (BuildContext context, int index) {
           return Single_prod(
             prod_name: product_list[index]['name'],
-            prod_pricture: product_list[index]['picture'],
+            prod_picture: product_list[index]['picture'],
             prod_old_price: product_list[index]['old_price'],
             prod_price: product_list[index]['price'],
           );
@@ -65,13 +65,13 @@ class _ProductsState extends State<Products> {
 
 class Single_prod extends StatelessWidget {
   final prod_name;
-  final prod_pricture;
+  final prod_picture;
   final prod_old_price;
   final prod_price;
 
   Single_prod({
     this.prod_name,
-    this.prod_pricture,
+    this.prod_picture,
     this.prod_old_price,
     this.prod_price,
   });
@@ -87,7 +87,7 @@ class Single_prod extends StatelessWidget {
                 product_detail_name: prod_name,
                 product_detail_old_price: prod_old_price,
                 product_detail_new_price: prod_old_price,
-                product_detail_picture: prod_pricture,
+                product_detail_picture: prod_picture,
               ))),
               child: GridTile(
                   footer: Container(
@@ -102,7 +102,7 @@ class Single_prod extends StatelessWidget {
                     ),
                   ),
                   child: Image.asset(
-                    prod_pricture,
+                    prod_picture,
                     fit: BoxFit.cover,
                   )),
             ),

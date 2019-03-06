@@ -281,7 +281,7 @@ class _SimilarProductsState extends State<SimilarProducts> {
         itemBuilder: (BuildContext context, int index) {
           return Similar_Single_prod(
             prod_name: product_list[index]['name'],
-            prod_pricture: product_list[index]['picture'],
+            prod_picture: product_list[index]['picture'],
             prod_old_price: product_list[index]['old_price'],
             prod_price: product_list[index]['price'],
           );
@@ -292,13 +292,13 @@ class _SimilarProductsState extends State<SimilarProducts> {
 
 class Similar_Single_prod extends StatelessWidget {
   final prod_name;
-  final prod_pricture;
+  final prod_picture;
   final prod_old_price;
   final prod_price;
 
   Similar_Single_prod({
     this.prod_name,
-    this.prod_pricture,
+    this.prod_picture,
     this.prod_old_price,
     this.prod_price,
   });
@@ -314,7 +314,7 @@ class Similar_Single_prod extends StatelessWidget {
                 product_detail_name: prod_name,
                 product_detail_old_price: prod_old_price,
                 product_detail_new_price: prod_old_price,
-                product_detail_picture: prod_pricture,
+                product_detail_picture: prod_picture,
               ))),
               child: GridTile(
                   footer: Container(
@@ -329,7 +329,7 @@ class Similar_Single_prod extends StatelessWidget {
                     ),
                   ),
                   child: Image.asset(
-                    prod_pricture,
+                    prod_picture,
                     fit: BoxFit.cover,
                   )),
             ),
