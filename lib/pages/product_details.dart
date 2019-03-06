@@ -223,9 +223,118 @@ class _ProductDetailsState extends State<ProductDetails> {
                 child: Text('NEW'),
               )
             ],
+          ),
+
+          Divider(),
+
+          //-- Similar Products Section
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text('Similar Products', style: TextStyle(fontWeight: FontWeight.bold),)
+          ),
+          Container(
+            height: 360.0,
+            child: SimilarProducts(),
           )
+
+
         ],
       ),
     );
   }
 }
+
+class SimilarProducts extends StatefulWidget {
+  @override
+  _SimilarProductsState createState() => _SimilarProductsState();
+}
+
+class _SimilarProductsState extends State<SimilarProducts> {
+
+  var product_list = [
+    {
+      "name": "Red dress",
+      "picture": "assets/images/products/hills2.jpeg",
+      "old_price": 100,
+      "price": 50,
+    },
+    {
+      "name": "Red dress",
+      "picture": "assets/images/products/skt1.jpeg",
+      "old_price": 100,
+      "price": 50,
+    },
+    {
+      "name": "Red dress",
+      "picture": "assets/images/products/skt2.jpeg",
+      "old_price": 100,
+      "price": 50,
+    },
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
+        itemCount: product_list.length,
+        gridDelegate:
+        new SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2),
+        itemBuilder: (BuildContext context, int index) {
+          return Similar_Single_prod(
+            prod_name: product_list[index]['name'],
+            prod_pricture: product_list[index]['picture'],
+            prod_old_price: product_list[index]['old_price'],
+            prod_price: product_list[index]['price'],
+          );
+        });
+  }
+
+}
+
+class Similar_Single_prod extends StatelessWidget {
+  final prod_name;
+  final prod_pricture;
+  final prod_old_price;
+  final prod_price;
+
+  Similar_Single_prod({
+    this.prod_name,
+    this.prod_pricture,
+    this.prod_old_price,
+    this.prod_price,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      child: Hero(
+          tag: Text("Hero 1"),
+          child: Material(
+            child: InkWell(
+              onTap: () => Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProductDetails(
+                product_detail_name: prod_name,
+                product_detail_old_price: prod_old_price,
+                product_detail_new_price: prod_old_price,
+                product_detail_picture: prod_pricture,
+              ))),
+              child: GridTile(
+                  footer: Container(
+                    color: Colors.white70,
+                    child: Row(
+                      children: <Widget>[
+                        Expanded(
+                          child: Text(prod_name, style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0)),
+                        ),
+                        Text("\$" + prod_price.toString(), style: TextStyle(color: Colors.red, fontWeight: FontWeight.bold))
+                      ],
+                    ),
+                  ),
+                  child: Image.asset(
+                    prod_pricture,
+                    fit: BoxFit.cover,
+                  )),
+            ),
+          )),
+    );
+  }
+}
+
